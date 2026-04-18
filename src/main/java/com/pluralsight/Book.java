@@ -19,7 +19,7 @@ public class Book {
     }
 
 
-    //Created setters and getters 
+    //Created setters and getters
     public int getBookID() {
         return bookID;
     }
@@ -66,4 +66,4 @@ public class Book {
 
 
 
-}
+
