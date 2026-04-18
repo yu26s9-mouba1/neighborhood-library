@@ -48,18 +48,31 @@ public class Book {
         return isCheckedOut;
     }
 
-    public void setCheckedOut(boolean checkedOut) {
-        isCheckedOut = checkedOut;
-    }
+//    public void setCheckedOut(boolean checkedOut) {
+//        isCheckedOut = checkedOut;
+//    }
 
     public String getCheckedOutTo() {
         return checkedOutTo;
     }
 
-    public void setCheckedOutTo(String checkedOutTo) {
-        this.checkedOutTo = checkedOutTo;
+//    public void setCheckedOutTo(String checkedOutTo) {
+//        this.checkedOutTo = checkedOutTo;
+//    }
+
+    public void checkOut(String name){
+        this.isCheckedOut = true;
+        this.checkedOutTo = name;
+    }
+
+    public void checkIn(){
+        this.isCheckedOut = false;
+        this.checkedOutTo = "";
+
     }
 }
+
+
 
 
 

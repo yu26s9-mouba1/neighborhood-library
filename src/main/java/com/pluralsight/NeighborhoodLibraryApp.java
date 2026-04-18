@@ -7,11 +7,37 @@ public class NeighborhoodLibraryApp {
     //Creating an array that will contain 20 books
     private static Book[] Books = new Book[20];
 
-    public static void main(){
+    public static void main(String[] args){
         initializeBooks(); //Calling the method
+
+        boolean running = true;
+
+        while (running) {
+            System.out.println("\n=== Neighborhood Library ===");
+            System.out.println("1. Show Available Books");
+            System.out.println("2. Show Checked Out Books");
+            System.out.println("3. Exit");
+
+            int choice = scanner.nextInt();
+
+            if  (choice == 1){
+                showAvailableBooks();
+            } else if (choice == 2){
+                showChedOutBooks();
+            } else if (choice == 3){
+                running = false;
+            } else {
+                System.out.println("Invalid choice. Please try again. ");
+            }
+        }
+
+
+        System.out.println("Goodbye!");
 
 
     }
+
+
       // Created a method that contains an array of 20 books
     public static void initializeBooks(){
 
@@ -39,7 +65,48 @@ public class NeighborhoodLibraryApp {
 
     }
 
-    
+    public static void ListAllBooks(){
+        for (int i = 0; i < Books.length; i++){
+            System.out.println(
+                    Books[i].getBookID() + " | " +
+                    Books[i].getBookIsbn() + " | " +
+                    Books[i].getBookTittle()
+            );
+        }
+    }
+
+    public static void showAvailableBooks(){
+        System.out.println("\n=== Available Books ===");
+
+        for (int i = 0; i < Books.length; i++){
+            if (!Books[i].isCheckedOut()){
+                System.out.println(
+                        Books[i].getBookID() + " | " +
+                        Books[i].getBookIsbn() + " | " +
+                        Books[i].getBookTittle()
+                );
+
+            }
+        }
+
+        System.out.println("\nEnter c to check out a book or x to go back:");
+        String choice = scanner.next();
+
+        if (choice.equalsIgnoreCase("C")){
+            System.out.println("Enter the ID of the book to check out: ");
+            int id = scanner.nextInt();
+
+            scanner.nextLine();
+            System.out.println("Enter your name: ");
+            String name = scanner.nextLine();
+
+            boolean found = false;
+
+            
+        }
+    }
+
+
 
 
 
