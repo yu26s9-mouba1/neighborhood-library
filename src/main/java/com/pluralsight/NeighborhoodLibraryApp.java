@@ -14,7 +14,7 @@ public class NeighborhoodLibraryApp {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n=== Neighborhood Library ===");
+            System.out.println("\n=== Welcome to the Neighborhood Library By Mubarak Congacou ===");
             System.out.println("1. Show Available Books");
             System.out.println("2. Show Checked Out Books");
             System.out.println("3. Exit");
