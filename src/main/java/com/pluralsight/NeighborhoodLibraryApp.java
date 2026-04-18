@@ -1,5 +1,6 @@
 package com.pluralsight;
 import java.util.Scanner;
+
 public class NeighborhoodLibraryApp {
     private static Scanner scanner = new Scanner(System.in);
 
@@ -7,7 +8,7 @@ public class NeighborhoodLibraryApp {
     //Creating an array that will contain 20 books
     private static Book[] Books = new Book[20];
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         initializeBooks(); //Calling the method
 
         boolean running = true;
@@ -20,11 +21,11 @@ public class NeighborhoodLibraryApp {
 
             int choice = scanner.nextInt();
 
-            if  (choice == 1){
+            if (choice == 1) {
                 showAvailableBooks();
-            } else if (choice == 2){
-                showChedOutBooks();
-            } else if (choice == 3){
+            } else if (choice == 2) {
+                showCheckedOutBooks();
+            } else if (choice == 3) {
                 running = false;
             } else {
                 System.out.println("Invalid choice. Please try again. ");
@@ -38,8 +39,8 @@ public class NeighborhoodLibraryApp {
     }
 
 
-      // Created a method that contains an array of 20 books
-    public static void initializeBooks(){
+    // Created a method that contains an array of 20 books
+    public static void initializeBooks() {
 
         Books[0] = new Book(1, "9780140449136", "The Odyssey", false, "");
         Books[1] = new Book(2, "9780140449181", "The Iliad", false, "");
@@ -65,34 +66,28 @@ public class NeighborhoodLibraryApp {
 
     }
 
-    public static void ListAllBooks(){
-        for (int i = 0; i < Books.length; i++){
-            System.out.println(
-                    Books[i].getBookID() + " | " +
-                    Books[i].getBookIsbn() + " | " +
-                    Books[i].getBookTittle()
-            );
+
+        //Listing all books for user interface
+    public static void ListAllBooks() {
+        for (int i = 0; i < Books.length; i++) {
+            System.out.println(Books[i].getBookID() + " | " + Books[i].getBookIsbn() + " | " + Books[i].getBookTittle());
         }
     }
 
-    public static void showAvailableBooks(){
+    public static void showAvailableBooks() {
         System.out.println("\n=== Available Books ===");
 
-        for (int i = 0; i < Books.length; i++){
-            if (!Books[i].isCheckedOut()){
-                System.out.println(
-                        Books[i].getBookID() + " | " +
-                        Books[i].getBookIsbn() + " | " +
-                        Books[i].getBookTittle()
-                );
+        for (int i = 0; i < Books.length; i++) {
+            if (!Books[i].isCheckedOut()) {
+                System.out.println(Books[i].getBookID() + " | " + Books[i].getBookIsbn() + " | " + Books[i].getBookTittle());
 
             }
         }
 
-        System.out.println("\nEnter c to check out a book or x to go back:");
+        System.out.println("\nEnter C to check out a book or x to go back:");
         String choice = scanner.next();
 
-        if (choice.equalsIgnoreCase("C")){
+        if (choice.equalsIgnoreCase("C")) {
             System.out.println("Enter the ID of the book to check out: ");
             int id = scanner.nextInt();
 
@@ -102,16 +97,73 @@ public class NeighborhoodLibraryApp {
 
             boolean found = false;
 
-            
+            for (int i = 0; i < Books.length; i++) {
+                if (Books[i].getBookID() == id && !Books[i].isCheckedOut()) {Books[i].setCheckedOut(true);Books[i].setCheckedOutTo(name);System.out.println("Book checked out successfully.");
+                    found = true;
+                    break;
+
+                }
+            }
+
+            if (!found) {
+                System.out.println("Book not found or already checked out.");
+            }
+
+
         }
     }
 
+    //Creating a method for checkedout books
+    public static void showCheckedOutBooks() {
+        System.out.println("\n=== Checked Out Books");
+
+        for (int i = 0; i < Books.length; i++) {
+            if (Books[i].isCheckedOut()) {
+                System.out.println(Books[i].getBookID() + " | " + Books[i].getBookIsbn() + " | " + Books[i].getBookTittle() + " | Checked out to: " + Books[i].getCheckedOutTo());
 
 
+            }
+        }
 
 
+        //Prompting the user to choose either they want to check in a book or to back to the menu
+        System.out.println("\nEnter C to check in a book or X to go back:");
+        String choice = scanner.next();
+
+        if (choice.equalsIgnoreCase("C")) {
+            System.out.println("Enter the ID of the book to check in: ");
+            int id = scanner.nextInt();
+
+            boolean found = false;
+
+            for (int i = 0; i < Books.length; i++) {
+                if (Books[i].getBookID() == id && Books[i].isCheckedOut()) {
+                    Books[i].checkIn();
+                    System.out.println("Book checked in successfully.");
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("Book not found or it is not currently checked out.");
+
+            }
+        }
+
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
 
 

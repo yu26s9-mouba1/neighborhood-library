@@ -5,15 +5,15 @@ public class Book {
     //Creating the book properties
     private int bookID;
     private String bookIsbn;
-    private String bookTittle;
+    private String bookTitle;
     private boolean isCheckedOut;
     private String checkedOutTo;
 
     //Constructors
-    public Book(int bookID, String bookIsbn, String bookTittle, boolean isCheckedOut, String checkedOutTo) {
+    public Book(int bookID, String bookIsbn, String bookTitle, boolean isCheckedOut, String checkedOutTo) {
         this.bookID = bookID;
         this.bookIsbn = bookIsbn;
-        this.bookTittle = bookTittle;
+        this.bookTitle = bookTitle;
         this.isCheckedOut = isCheckedOut;
         this.checkedOutTo = checkedOutTo;
     }
@@ -21,14 +21,17 @@ public class Book {
 
     //Created setters and getters
     public int getBookID() {
+
         return bookID;
     }
 
     public void setBookID(int bookID) {
+
         this.bookID = bookID;
     }
 
     public String getBookIsbn() {
+
         return bookIsbn;
     }
 
@@ -37,28 +40,29 @@ public class Book {
     }
 
     public String getBookTittle() {
-        return bookTittle;
+        return bookTitle;
     }
 
     public void setBookTittle(String bookTittle) {
-        this.bookTittle = bookTittle;
+        this.bookTitle = bookTittle;
     }
 
     public boolean isCheckedOut() {
+
         return isCheckedOut;
     }
 
-//    public void setCheckedOut(boolean checkedOut) {
-//        isCheckedOut = checkedOut;
-//    }
+    public void setCheckedOut(boolean checkedOut) {
+        isCheckedOut = checkedOut;
+    }
 
     public String getCheckedOutTo() {
         return checkedOutTo;
     }
 
-//    public void setCheckedOutTo(String checkedOutTo) {
-//        this.checkedOutTo = checkedOutTo;
-//    }
+    public void setCheckedOutTo(String checkedOutTo) {
+        this.checkedOutTo = checkedOutTo;
+    }
 
     public void checkOut(String name){
         this.isCheckedOut = true;
