@@ -19,7 +19,7 @@ public class Book {
     }
 
 
-    //Created setters and getters
+    // setters and getters to read and update data
     public int getBookID() {
 
         return bookID;
@@ -65,13 +65,13 @@ public class Book {
     }
 
     public void checkOut(String name){
-        this.isCheckedOut = true;
-        this.checkedOutTo = name;
+        this.isCheckedOut = true; //The book is unavailable
+        this.checkedOutTo = name;  //THe person who checked it out
     }
 
     public void checkIn(){
-        this.isCheckedOut = false;
-        this.checkedOutTo = "";
+        this.isCheckedOut = false;  // The book is available
+        this.checkedOutTo = "";     // Nothing will be displayed
 
     }
 }

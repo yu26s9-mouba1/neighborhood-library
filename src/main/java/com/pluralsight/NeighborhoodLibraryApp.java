@@ -11,7 +11,7 @@ public class NeighborhoodLibraryApp {
     public static void main(String[] args) {
         initializeBooks(); //Calling the method
 
-        boolean running = true;
+        boolean running = true; //The program will keep running non stop I set the boolean to false
 
         while (running) {
             System.out.println("\n=== Welcome to the Neighborhood Library By Mubarak Congacou ===");
@@ -84,6 +84,8 @@ public class NeighborhoodLibraryApp {
             }
         }
 
+
+        //Prompting the user for options
         System.out.println("\nEnter C to check out a book or x to go back:");
         String choice = scanner.next();
 
@@ -91,14 +93,18 @@ public class NeighborhoodLibraryApp {
             System.out.println("Enter the ID of the book to check out: ");
             int id = scanner.nextInt();
 
-            scanner.nextLine();
+            scanner.nextLine(); //Making sure everything is display clearly
+
             System.out.println("Enter your name: ");
             String name = scanner.nextLine();
 
             boolean found = false;
 
             for (int i = 0; i < Books.length; i++) {
-                if (Books[i].getBookID() == id && !Books[i].isCheckedOut()) {Books[i].setCheckedOut(true);Books[i].setCheckedOutTo(name);System.out.println("Book checked out successfully.");
+                if (Books[i].getBookID() == id && !Books[i].isCheckedOut()) {
+                    Books[i].setCheckedOut(true);
+                    Books[i].setCheckedOutTo(name);
+                    System.out.println("Book checked out successfully.");
                     found = true;
                     break;
 
@@ -126,7 +132,7 @@ public class NeighborhoodLibraryApp {
         }
 
 
-        //Prompting the user to choose either they want to check in a book or to back to the menu
+        //Prompting the user to choose either they want to check in a book or to go back to the menu
         System.out.println("\nEnter C to check in a book or X to go back:");
         String choice = scanner.next();
 
